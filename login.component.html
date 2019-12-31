@@ -1,0 +1,109 @@
+
+
+
+<div class="container">
+    <div class="col-md-4 offset-4 mt-2 card">
+        <div class="card-body">
+            <h1 class="display-5 text-center text-uppercase">DETAILS</h1>
+<form >
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username"     
+        ngModel
+        #username="ngModel" 
+         name="username"
+        ngModel  
+       
+        class="form-control" required 
+         placeholder="enter username" 
+         minlength="3"
+         maxlength="30">
+         <div 
+                   *ngIf="username.touched && username.invalid"
+                    class="text-danger m-2">
+                    <p *ngIf="username.errors.required">Username is required</p>
+                    <p *ngIf="username.errors.minlength">usename should be minimum 3 characters</p>
+                    <p *ngIf="username.errors.maxlength">username should match</p>
+                </div>
+    </div>  
+    <div class="form-group">
+        <label for="password">Password </label>
+        <input type="password" id="password" 
+        #password="ngModel"
+        ngModel  name="password"  class="form-control" required 
+         placeholder="enter password"  name="password"
+         minlength="3"
+         maxlength="15">
+    
+                 <div 
+                 *ngIf="password.touched && password.invalid"
+                  class="text-danger m-2">
+                  <p *ngIf="password.errors.required">password is required</p>
+                  <p *ngIf="password.errors.minlength">password should be minimum 3 charaters</p>
+                   <p *ngIf="password.errors.maxlength">password should match</p>
+
+    </div>
+</div>
+
+    <div class="form-group">
+        <label *ngFor="let gender of genderList">
+        <input type="radio" ngModel  name="gender"
+        value="{{gender.name}}"> "{{gender.name}}"
+    </label>
+    </div>
+    <div class="form-group">
+        <label for="mobilenum">MobileNum</label>
+        <input type="mobilenum" id="mobilenum"  
+        #mobilenum = "ngModel"
+        ngModel  name="mobilenum"  class="form-control" required
+         placeholder="enter mobilenum"  name="mobilenum"
+        minlength="10"
+        maxlength="10">
+
+        <div 
+        *ngIf="mobilenum.touched && mobilenum.invalid"
+         class="text-danger m-2">
+         <p *ngIf="mobilenum.errors.required">mobilenum is required</p>
+         <p *ngIf="mobilenum.errors.minlength">mobilenum should be minimum 10 charaters</p>
+          <p *ngIf="mobilenum.errors.maxlength">mobilenum should match</p>
+</div>
+
+
+    </div>
+    <div class="form-group">
+        <label for="country">Country</label>
+        <select name="country"  class="form-control"    placeholder="enter country"  id="">
+       <option *ngFor="let country of countryList ; index as i"
+        [ngValue]="i" >
+        {{country}}
+       </option>
+    </select>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-success btn-block"
+        >SUBMIT</button>
+    </div>
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
